@@ -46,4 +46,22 @@ addButton.addEventListener("click", (e) => {
     listItem.appendChild(listItemContainer)
     listItem.appendChild(dataText)
     shoppingList.appendChild(listItem)
+
+    checkEmptyList()
 })
+
+const emptyMessage = document.querySelector(".mensagem-lista-vazia")
+
+function checkEmptyList () {
+    const listItem = shoppingList.querySelectorAll(".lista-item-container")
+    console.log(listItem)
+
+    if(listItem.length != 0){
+        emptyMessage.style.display = "none"
+    } else {
+        emptyMessage.style.display = "block"
+    }
+
+}
+
+checkEmptyList()
