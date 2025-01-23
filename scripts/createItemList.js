@@ -1,8 +1,7 @@
 import generateWeekday from "./generateWeekday.js"
 const inputItem = document.getElementById("input-item")
 
-export function createItemList (e) {
-    e.preventDefault()
+export function createItemList () {
     if (inputItem.value === ""){
         alert("Por favor, insira um item!")
         return

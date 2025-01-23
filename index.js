@@ -1,27 +1,14 @@
 import { createItemList } from "./scripts/createItemList.js"
+import checkEmptyList from "./scripts/checkEmptyList.js"
 
 const shoppingList = document.getElementById("lista-de-compras")
-
 const addButton = document.getElementById("adicionar-item")
 
-
 addButton.addEventListener("click", (e) => {
-    const listItem = createItemList(e)
+    e.preventDefault()
+    const listItem = createItemList()
     shoppingList.appendChild(listItem)
-    checkEmptyList()
+    checkEmptyList(shoppingList)
 })
 
-const emptyMessage = document.querySelector(".mensagem-lista-vazia")
-
-function checkEmptyList () {
-    const listItem = shoppingList.querySelectorAll(".lista-item-container")
-
-    if(listItem.length != 0){
-        emptyMessage.style.display = "none"
-    } else {
-        emptyMessage.style.display = "block"
-    }
-
-}
-
-checkEmptyList()
+checkEmptyList(shoppingList)
